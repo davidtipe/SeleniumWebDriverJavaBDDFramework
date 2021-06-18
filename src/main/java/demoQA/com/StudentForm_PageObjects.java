@@ -13,81 +13,73 @@ import java.io.IOException;
 import java.util.List;
 
 public class StudentForm_PageObjects extends BasePage {
-    LandingPage_PageObjects lp;
 
     public StudentForm_PageObjects() {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy(xpath = "//span[contains(text(),'Practice Form')]")
-    private WebElement practiceForm;
+    @FindBy(xpath = "(//div[@class='card-body'])[2]")
+    protected WebElement formCard;
 
-    @FindBy(xpath = "(//div[@class='header-text'])[2]")
-    private WebElement formHeader;
+    @FindBy(xpath = "//span[contains(text(),'Practice Form')]")
+    protected WebElement practiceForm;
 
     @FindBy(css = "#firstName")
-    private WebElement firstName;
+    protected WebElement firstName;
 
     @FindBy(css = "#lastName")
-    private WebElement lastName;
+    protected WebElement lastName;
 
     @FindBy(css = "#userEmail")
-    private WebElement email;
+    protected WebElement email;
 
     @FindBy(css = "#userNumber")
-    private WebElement mobile;
+    protected WebElement mobile;
 
     @FindBy(css = "#dateOfBirthInput")
-    private WebElement dobField;
+    protected WebElement dobField;
 
     @FindBy(xpath = "//div[@role='option']")
-    private List<WebElement> dayPicker;
+    protected List<WebElement> dayPicker;
 
     @FindBy(className = "react-datepicker__month-select")
-    private WebElement monthPicker;
+    protected WebElement monthPicker;
 
     @FindBy(className = "react-datepicker__year-select")
-    private WebElement yearPicker;
+    protected WebElement yearPicker;
 
     @FindBy(className = "custom-control-label")
-    private List<WebElement> buttonLabels;
+    protected List<WebElement> buttonLabels;
 
     @FindBy(id = "subjectsInput")
-    private WebElement subjectsField;
+    protected WebElement subjectsField;
 
     @FindBy(css = "#uploadPicture")
-    private WebElement chooseFileBtn;
+    protected WebElement chooseFileBtn;
 
     @FindBy(id = "currentAddress")
-    private WebElement currentAddress;
+    protected WebElement currentAddress;
 
     @FindBy(xpath = "(//div[@id='stateCity-wrapper']/div[2]/div/div/div)[2]")
-    private WebElement stateFld;
-
-    @FindBy(xpath = "(//div[@id='stateCity-wrapper']/div[2]/div/div/div)[2]")
-    private List<WebElement> stateFldList;
+    protected WebElement stateFld;
 
     @FindBy(css = "#city")
-    private WebElement city;
+    protected WebElement city;
 
     @FindBy(css = "#submit")
-    private WebElement submitButton;
+    protected WebElement submitButton;
 
-    @FindBy (css = "#example-modal-sizes-title-lg")
-    private WebElement modalHeader;
+    @FindBy(css = "#example-modal-sizes-title-lg")
+    protected WebElement modalHeader;
 
-    @FindBy (css = "#closeLargeModal")
-    private WebElement closeModalBtn;
+    @FindBy(css = "#closeLargeModal")
+    protected WebElement closeModalBtn;
 
-    @FindBy (className = "was-validated")
-    private WebElement formValidated;
+    @FindBy(className = "was-validated")
+    protected WebElement formValidated;
 
-    public void navigateToStudentForm() throws IOException, InterruptedException {
-        lp = new LandingPage_PageObjects();
-        lp.clickElementsCard();
-        waitUntilVisibleAndClick(formHeader);
-       //Thread.sleep(2000);
-        //formHeader.click();
+    public void navigateToStudentForm() {
+        waitUntilVisibleAndClick(formCard);
         practiceForm.click();
 
 
@@ -148,7 +140,7 @@ public class StudentForm_PageObjects extends BasePage {
     }
 
     public void selectCity() throws IOException {
-       waitUntilVisibleAndClick(city);
+        waitUntilVisibleAndClick(city);
         sendKeysStringWithActionsClass(getProperty("city"));
         sendKeyKeysWithActionsClass(Keys.TAB);
     }
@@ -157,22 +149,18 @@ public class StudentForm_PageObjects extends BasePage {
         submitButton.click();
     }
 
-    public void verifyModalIsDisplayed ()
-    {
+    public void verifyModalIsDisplayed() {
         Assert.assertTrue(modalHeader.isDisplayed());
-        System.out.println("Modal header text is: "+ modalHeader.getText());
+        System.out.println("Modal header text is: " + modalHeader.getText());
     }
 
-    public void closeModal ()
-    {
+    public void closeModal() {
         closeModalBtn.click();
     }
 
-    public void formValidation(){
+    public void formValidation() {
         Assert.assertTrue(formValidated.isDisplayed());
     }
-
-
 
 
 }

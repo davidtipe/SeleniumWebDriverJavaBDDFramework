@@ -7,41 +7,39 @@ import org.openqa.selenium.support.PageFactory;
 
 
 public class Tooltip_PageObjects extends BasePage {
-    LandingPage_PageObjects lp=new LandingPage_PageObjects();
     public Tooltip_PageObjects() {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (xpath = "(//div[@class='header-text'])[4]")
-    private WebElement toolTipHeader;
+    @FindBy (xpath = "(//div[@class='card-body'])[4]")
+    protected WebElement widgetsCard;
 
     @FindBy (xpath = "//span[contains(text(),'Tool Tips')]")
-    private WebElement toolTipPage;
+    protected WebElement toolTipPage;
 
     @FindBy (css = "#toolTipButton")
-    private WebElement button;
+    protected WebElement button;
 
     @FindBy (css = "#toolTipTextField")
-    private WebElement inputField;
+    protected WebElement inputField;
 
 
     public void navigateToToolTipPage(){
-        lp.clickElementsCard();
-        waitUntilVisibleAndClick(toolTipHeader);
+        widgetsCard.click();
         scrollDown();
         waitUntilVisibleAndClick(toolTipPage);
     }
 
 
-    public void hoverOverButton()
-    {
+    public void hoverOverButton() throws InterruptedException {
         actions.moveToElement(button).perform();
+        Thread.sleep(5000);
         System.out.println(button.getAttribute("id"));
     }
 
-    public void hoverOverInputField()
-    {
+    public void hoverOverInputField() throws InterruptedException {
         actions.moveToElement(inputField).perform();
+        Thread.sleep(5000);
         System.out.println(inputField.getAttribute("id"));
     }
 }

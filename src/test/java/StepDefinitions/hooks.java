@@ -6,12 +6,12 @@ import io.cucumber.java.Before;
 
 
 public class hooks extends BasePage {
-    @Before("@frames")
+    @Before("@test")
     public void beforeScenario(){
         startDriver();
     }
 
-    @After("@frames")
+    @After("@test")
     public void afterScenario(){
         driver.quit();
     }

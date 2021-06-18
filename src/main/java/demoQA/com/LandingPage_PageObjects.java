@@ -14,7 +14,7 @@ public class LandingPage_PageObjects extends BasePage {
     }
 
     @FindBy(xpath = "(//div[@class='card-body'])[1]")
-    private WebElement elementCard;
+    protected WebElement elementCard;
 
     public void navigateToHomePage() throws IOException {
         goToUrl(getProperty("url"));

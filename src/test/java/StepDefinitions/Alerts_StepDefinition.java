@@ -50,6 +50,7 @@ public class Alerts_StepDefinition extends BasePage {
 
     @And("^user clicks on button and can press cancel on prompt$")
     public void user_clicks_on_button_and_can_press_cancel_on_prompt() throws Throwable {
+        alerts.promptAlert();
         alerts.dismissAlert();
     }
 

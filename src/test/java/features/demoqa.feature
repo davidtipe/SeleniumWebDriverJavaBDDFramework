@@ -15,7 +15,7 @@ Feature: user performs actions on demoQA to demonstrate automation skill
       | fullName | Email          | currentAddress     | permanentAddress   |
       | David    | david@demo.com | 26 brinkburn close | 26 brinkburn close |
 
-  @studentForm
+  @test
   Scenario: student fills out registration form happy path
     Given student navigates to student registration form page
     And student provides first name, last name, email and Mobile
@@ -30,14 +30,14 @@ Feature: user performs actions on demoQA to demonstrate automation skill
     And I can verify that a modal detailing form information is displayed
     Then I can close Modal
 
-  @studentForm
+  @test
   Scenario: verify validation on required fields on student form
     Given student navigates to student registration form page
     And provides current address
     Then submits form
     Then user can verify validation is performed on required fields
 
-  @studentForm
+  @test
   Scenario: test alert page
     Given a user navigates to alerts page
     And clicks button to see alert
@@ -49,18 +49,18 @@ Feature: user performs actions on demoQA to demonstrate automation skill
     And user clicks on button and can type into prompt and select ok
     And user clicks on button and can press cancel on prompt
 
-  @toolTip
+  @test
   Scenario: hover over tool tip and get text
     Given I navigate to toolTip page
     Then I can hover over button
     And I can hover over input field
 
-  @datePicker
+  @test
   Scenario: select one month from today in date picker
     Given I navigate to the date picker page
     When I click on select date field I can get the text
 
-  @frames
+  @test
   Scenario: get text inside a frame
     Given I navigate to the frame page
     When I switch to frame then I can get text

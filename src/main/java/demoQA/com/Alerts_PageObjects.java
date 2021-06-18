@@ -1,7 +1,6 @@
 package demoQA.com;
 
 import common_utilities.BasePage;
-import org.openqa.selenium.Alert;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
@@ -16,22 +15,22 @@ public class Alerts_PageObjects extends BasePage {
     }
 
     @FindBy(xpath = "(//div[@class='header-text'])[3]")
-    private WebElement alertHeader;
+    protected WebElement alertHeader;
 
     @FindBy(xpath = "//span[contains(text(),'Alerts')]")
-    private WebElement alertsPage;
+    protected WebElement alertsPage;
 
     @FindBy(css = "#alertButton")
-    private WebElement clickToSeeAlertButton;
+    protected WebElement clickToSeeAlertButton;
 
     @FindBy(css = "#timerAlertButton")
-    private WebElement timerAlertButton;
+    protected WebElement timerAlertButton;
 
     @FindBy(css = "#confirmButton")
-    private WebElement confirmBtn;
+    protected WebElement confirmBtn;
 
     @FindBy(id = "promtButton")
-    private WebElement promtBtn;
+    protected WebElement promtBtn;
 
     public void navigateToAlertPage() {
         lp.clickElementsCard();
@@ -43,7 +42,7 @@ public class Alerts_PageObjects extends BasePage {
         clickToSeeAlertButton.click();
     }
 
-    public void acceptAlert() throws InterruptedException {
+    public void acceptAlert() {
         waitUntilAlertPresent();
         alert = driver.switchTo().alert();
         alert.accept();
@@ -56,7 +55,7 @@ public class Alerts_PageObjects extends BasePage {
         alert.dismiss();
     }
 
-    public void timedAlert() throws InterruptedException {
+    public void timedAlert() {
         timerAlertButton.click();
     }
 

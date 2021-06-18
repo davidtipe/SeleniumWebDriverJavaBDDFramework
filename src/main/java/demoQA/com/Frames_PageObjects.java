@@ -6,32 +6,29 @@ import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 
 public class Frames_PageObjects extends BasePage {
-    LandingPage_PageObjects lp=new LandingPage_PageObjects();
     public Frames_PageObjects ()
     {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (xpath = "(//div[@class='header-text'])[3]")
-    private WebElement frameHeader;
+    @FindBy (xpath = "(//div[@class='card-body'])[3]")
+    protected WebElement alertsFrameAndWindowsCard;
 
     @FindBy (xpath = "//span[contains(text(),'Frames')]")
-    private WebElement framesPage;
+    protected WebElement framesPage;
 
     @FindBy (xpath = "//iframe[@id='frame1']")
-    private WebElement iFrame;
+    protected WebElement iFrame;
 
     @FindBy (id = "sampleHeading")
-    private WebElement iFrameHeader;
+    protected WebElement iFrameHeader;
 
     @FindBy (xpath = "//div[contains(text(),'Sample Iframe page There are 2 Iframes in this pag')]")
-    private WebElement defaultContentText;
+    protected WebElement defaultContentText;
 
     public void navigateToFramesPage ()
     {
-        lp.clickElementsCard();
-        scrollDown();
-        waitUntilVisibleAndClick(frameHeader);
+        waitUntilVisibleAndClick(alertsFrameAndWindowsCard);
         framesPage.click();
 
     }

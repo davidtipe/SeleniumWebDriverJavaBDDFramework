@@ -1,50 +1,39 @@
 package demoQA.com;
 
 import common_utilities.BasePage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 import org.openqa.selenium.support.PageFactory;
 import org.openqa.selenium.support.ui.Select;
 
 import java.time.LocalDate;
-import java.time.ZoneId;
-import java.util.Calendar;
-import java.util.GregorianCalendar;
 import java.util.List;
 
 public class DatePicker_PageObjects extends BasePage {
-    LandingPage_PageObjects lp=new LandingPage_PageObjects();
+    Tooltip_PageObjects tp=new Tooltip_PageObjects();
     public DatePicker_PageObjects() {
         PageFactory.initElements(driver, this);
     }
 
-    @FindBy (xpath="(//div[@class='header-text'])[4]")
-    private WebElement widgetsHeader;
-
     @FindBy (xpath="//span[contains(text(),'Date Picker')]")
-    private WebElement datePickerPage;
+    protected WebElement datePickerPage;
 
     @FindBy (css = "#datePickerMonthYearInput")
-    private WebElement selectDatePiker;
+    protected WebElement selectDatePiker;
 
     @FindBy (className = "react-datepicker__month-select")
-    private WebElement month;
+    protected WebElement month;
 
     @FindBy (xpath = "//div[@role='option']")
-    private List <WebElement> dayInDatePicker;
-
-    @FindBy (xpath = "//div[@role='option']")
-    private WebElement day;
+    protected List <WebElement> dayInDatePicker;
 
     @FindBy (className = "react-datepicker__year-select")
-    private WebElement year;
+    protected WebElement year;
 
     public void navigateToDatePickerPage ()
     {
-        lp.clickElementsCard();
+        waitUntilVisibleAndClick(tp.widgetsCard);
         scrollDown();
-        waitUntilVisibleAndClick(widgetsHeader);
         datePickerPage.click();
     }
 

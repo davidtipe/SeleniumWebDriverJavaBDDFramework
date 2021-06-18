@@ -12,34 +12,34 @@ public class TextBox_PageObjects extends BasePage {
     public TextBox_PageObjects() {PageFactory.initElements(driver, this); }
 
     @FindBy(id = "item-0")
-    private List<WebElement> textBox;
+    protected List<WebElement> textBox;
 
     @FindBy(css = "#userName")
-    private WebElement fullName;
+    protected WebElement fullName;
 
     @FindBy(css = "#userEmail")
-    private WebElement email;
+    protected WebElement email;
 
     @FindBy(css = "#currentAddress")
-    private WebElement currentAddress;
+    protected WebElement currentAddress;
 
     @FindBy(css = "#permanentAddress")
-    private WebElement permanentAddress;
+    protected WebElement permanentAddress;
 
     @FindBy(css = "#submit")
-    private WebElement submitButton;
+    protected WebElement submitButton;
 
     @FindBy (css= "#name")
-    private WebElement formNameField;
+    protected WebElement formNameField;
 
     @FindBy (css= "#email")
-    private WebElement formEmailField;
+    protected WebElement formEmailField;
 
     @FindBy (xpath= "//p[@id='currentAddress']")
-    private WebElement formCurrentAddressField;
+    protected WebElement formCurrentAddressField;
 
     @FindBy (xpath= "//p[@id='permanentAddress']")
-    private WebElement formPermanentAddressField;
+    protected WebElement formPermanentAddressField;
 
     public void clickTextBox() {
         textBox.get(0).click();
