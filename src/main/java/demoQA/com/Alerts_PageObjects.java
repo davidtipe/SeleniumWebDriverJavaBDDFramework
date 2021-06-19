@@ -8,14 +8,10 @@ import org.openqa.selenium.support.PageFactory;
 import java.io.IOException;
 
 public class Alerts_PageObjects extends BasePage {
-    LandingPage_PageObjects lp = new LandingPage_PageObjects();
-
+    Frames_PageObjects fp=new Frames_PageObjects();
     public Alerts_PageObjects() {
         PageFactory.initElements(driver, this);
     }
-
-    @FindBy(xpath = "(//div[@class='header-text'])[3]")
-    protected WebElement alertHeader;
 
     @FindBy(xpath = "//span[contains(text(),'Alerts')]")
     protected WebElement alertsPage;
@@ -33,13 +29,12 @@ public class Alerts_PageObjects extends BasePage {
     protected WebElement promtBtn;
 
     public void navigateToAlertPage() {
-        lp.clickElementsCard();
-        waitUntilVisibleAndClick(alertHeader);
+        fp.alertsFrameAndWindowsCard.click();
         alertsPage.click();
     }
 
     public void clickToSeeAlert() {
-        clickToSeeAlertButton.click();
+        waitUntilVisibleAndClick(clickToSeeAlertButton);
     }
 
     public void acceptAlert() {

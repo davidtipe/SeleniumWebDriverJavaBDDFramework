@@ -36,9 +36,8 @@ public class Droppable_PageObjects extends BasePage {
     }
 
     public void dragAndDropElement() throws InterruptedException {
-        wait.until(ExpectedConditions.visibilityOf(destination));
+        Thread.sleep(2000);
         actions.dragAndDrop(source, destination).build().perform();
-        Thread.sleep(10000);
         Assert.assertTrue(destination.getText().equalsIgnoreCase("dropped!"));
         System.out.println(destination.getText());
     }
