@@ -19,8 +19,9 @@ public class ToolTip_StepDefinition extends BasePage {
        tt.hoverOverButton();
     }
 
-    @And("^I can hover over input field$")
-    public void i_can_hover_over_input_field() throws Throwable {
-        tt.hoverOverInputField();
+    @And("^I can hover over input field and get text$")
+    public void i_can_hover_over_input_field_and_get_text() throws Throwable {
+        tt.hoverOverInputFieldAndGetText();
+
     }
 }

@@ -53,7 +53,7 @@ Feature: user performs actions on demoQA to demonstrate automation skill
   Scenario: hover over tool tip and get text
     Given I navigate to toolTip page
     Then I can hover over button
-    And I can hover over input field
+    And I can hover over input field and get text
 
   @test
   Scenario: select one month from today in date picker
