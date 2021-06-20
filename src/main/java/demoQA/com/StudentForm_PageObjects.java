@@ -78,8 +78,10 @@ public class StudentForm_PageObjects extends BasePage {
     @FindBy(className = "was-validated")
     protected WebElement formValidated;
 
-    public void navigateToStudentForm() {
-        waitUntilVisibleAndClick(formCard);
+    public void navigateToStudentForm() throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(formCard);
+        //waitUntilVisibleAndClick(formCard);
         practiceForm.click();
 
 
@@ -154,8 +156,9 @@ public class StudentForm_PageObjects extends BasePage {
         System.out.println("Modal header text is: " + modalHeader.getText());
     }
 
-    public void closeModal() {
-        closeModalBtn.click();
+    public void closeModal() throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(closeModalBtn);
     }
 
     public void formValidation() {

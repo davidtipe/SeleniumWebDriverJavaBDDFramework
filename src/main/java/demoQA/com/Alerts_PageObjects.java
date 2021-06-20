@@ -28,13 +28,17 @@ public class Alerts_PageObjects extends BasePage {
     @FindBy(id = "promtButton")
     protected WebElement promtBtn;
 
-    public void navigateToAlertPage() {
-        fp.alertsFrameAndWindowsCard.click();
+    public void navigateToAlertPage() throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(fp.alertsFrameAndWindowsCard);
+        //fp.alertsFrameAndWindowsCard.click();
         alertsPage.click();
     }
 
-    public void clickToSeeAlert() {
-        waitUntilVisibleAndClick(clickToSeeAlertButton);
+    public void clickToSeeAlert() throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(clickToSeeAlertButton);
+        //waitUntilVisibleAndClick(clickToSeeAlertButton);
     }
 
     public void acceptAlert() {

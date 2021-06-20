@@ -157,5 +157,10 @@ public abstract class BasePage {
         js.executeScript("arguments[0].scrollIntoView(true);", element);
     }
 
+    protected void javascriptClick(WebElement element)
+    {
+        js.executeScript("arguments[0].click();", element);
+    }
+
 
 }

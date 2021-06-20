@@ -27,7 +27,8 @@ public class Tooltip_PageObjects extends BasePage {
     protected WebElement hoverText;
 
     public void navigateToToolTipPage() {
-        widgetsCard.click();
+        javascriptClick(widgetsCard);
+       // widgetsCard.click();
         scrollDown();
         waitUntilVisibleAndClick(toolTipPage);
     }

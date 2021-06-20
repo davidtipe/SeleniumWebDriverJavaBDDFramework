@@ -30,9 +30,10 @@ public class DatePicker_PageObjects extends BasePage {
     @FindBy (className = "react-datepicker__year-select")
     protected WebElement year;
 
-    public void navigateToDatePickerPage ()
-    {
-        waitUntilVisibleAndClick(tp.widgetsCard);
+    public void navigateToDatePickerPage () throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(tp.widgetsCard);
+        //waitUntilVisibleAndClick(tp.widgetsCard);
         scrollDown();
         datePickerPage.click();
     }

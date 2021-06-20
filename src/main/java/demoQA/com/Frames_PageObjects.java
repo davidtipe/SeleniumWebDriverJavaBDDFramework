@@ -26,10 +26,12 @@ public class Frames_PageObjects extends BasePage {
     @FindBy (xpath = "//div[contains(text(),'Sample Iframe page There are 2 Iframes in this pag')]")
     protected WebElement defaultContentText;
 
-    public void navigateToFramesPage ()
-    {
-        waitUntilVisibleAndClick(alertsFrameAndWindowsCard);
-        framesPage.click();
+    public void navigateToFramesPage () throws InterruptedException {
+        Thread.sleep(500);
+        javascriptClick(alertsFrameAndWindowsCard);
+        //waitUntilVisibleAndClick(alertsFrameAndWindowsCard);
+        javascriptClick(framesPage);
+        //framesPage.click();
 
     }
 
@@ -38,6 +40,6 @@ public class Frames_PageObjects extends BasePage {
         driver.switchTo().frame(iFrame);
         System.out.println(iFrameHeader.getText());
         driver.switchTo().defaultContent();
-        System.out.println("default content text "+ defaultContentText.getText());
+        System.out.println("default content text is: "+ defaultContentText.getText());
     }
 }
