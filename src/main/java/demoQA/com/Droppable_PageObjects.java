@@ -27,9 +27,11 @@ public class Droppable_PageObjects extends BasePage {
     protected WebElement destination;
 
 
-    public void navigateToDroppable() throws IOException {
+    public void navigateToDroppable() throws IOException, InterruptedException {
         goToUrl(getProperty("url"));
-        waitUntilVisibleAndClick(interactionsCard);
+        Thread.sleep(500);
+        javascriptClick(interactionsCard);
+       // waitUntilVisibleAndClick(interactionsCard);
         scrollDown();
         droppablePage.click();
     }

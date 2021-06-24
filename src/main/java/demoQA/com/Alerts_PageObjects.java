@@ -32,7 +32,8 @@ public class Alerts_PageObjects extends BasePage {
         Thread.sleep(500);
         javascriptClick(fp.alertsFrameAndWindowsCard);
         //fp.alertsFrameAndWindowsCard.click();
-        alertsPage.click();
+        Thread.sleep(500);
+        javascriptClick(alertsPage);
     }
 
     public void clickToSeeAlert() throws InterruptedException {

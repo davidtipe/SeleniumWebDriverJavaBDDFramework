@@ -1,4 +1,4 @@
-package StepDefinitions;
+package demoQA_StepDefinitions;
 
 import common_utilities.BasePage;
 import demoQA.com.DatePicker_PageObjects;

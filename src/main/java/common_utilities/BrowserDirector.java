@@ -9,7 +9,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import java.util.concurrent.TimeUnit;
 
 public class BrowserDirector {
-    public static WebDriver get(Enums browsers) {
+    public static WebDriver get(BrowserEnums browsers) {
         WebDriver driver;
         switch (browsers) {
             case CHROME:

@@ -1,4 +1,4 @@
-package StepDefinitions;
+package demoQA_StepDefinitions;
 
 import demoQA.com.LandingPage_PageObjects;
 import demoQA.com.TextBox_PageObjects;

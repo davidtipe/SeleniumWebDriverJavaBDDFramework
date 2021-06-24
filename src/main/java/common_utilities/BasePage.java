@@ -11,7 +11,7 @@ import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
 import java.util.Properties;
-import static common_utilities.Enums.CHROME;
+import static common_utilities.BrowserEnums.CHROME;
 import static common_utilities.BrowserDirector.get;
 
 public abstract class BasePage {
@@ -32,15 +32,14 @@ public abstract class BasePage {
 
     protected static String getProperty(String property) throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/main/java/common_utilities/data.properties");
+        FileInputStream fis = new FileInputStream("src/main/java/resources/data.properties");
         prop.load(fis);
-        String dataObject = prop.getProperty(property);
-        return dataObject;
+        return prop.getProperty(property);
     }
 
     protected static void setProperty(String key, String value) throws IOException {
         Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/main/java/common_utilities/data.properties");
+        FileInputStream fis = new FileInputStream("src/main/java/resources/data.properties");
         prop.load(fis);
         prop.setProperty(key, value);
     }
