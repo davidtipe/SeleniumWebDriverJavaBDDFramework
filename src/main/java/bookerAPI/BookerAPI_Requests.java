@@ -1,8 +1,9 @@
 package bookerAPI;
 
-import bookerAPI_utilities.*;
+import bookerAPI_PojoClasses.*;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import common_utilities.BasePage;
+import common_utilities.RestAPI_Resources;
 import io.restassured.RestAssured;
 import io.restassured.http.Header;
 import io.restassured.http.Headers;
@@ -35,7 +36,7 @@ public class BookerAPI_Requests extends BasePage {
         headerList.add(new Header("Accept", "application/json"));
         headerList.add(new Header("Content-Type", "application/json"));
         Headers headers = new Headers(headerList);
-        BookerAPI_Resource resourceAPI=BookerAPI_Resource.valueOf(resource);
+        RestAPI_Resources resourceAPI= RestAPI_Resources.valueOf(resource);
         RestAssured.baseURI = getProperty("baseuri");
         String response=given().log().all().headers(headers).body(createBookingPayload()).when().post(resourceAPI.getResource()).then().statusCode(200).log().all().extract().response().asString();
         ObjectMapper mapper = new ObjectMapper();

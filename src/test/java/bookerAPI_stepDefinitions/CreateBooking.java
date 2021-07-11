@@ -1,7 +1,7 @@
 package bookerAPI_stepDefinitions;
 
 import bookerAPI.BookerAPI_Requests;
-import bookerAPI_utilities.CreateBookingResponsePayload;
+import bookerAPI_PojoClasses.CreateBookingResponsePayload;
 import common_utilities.BasePage;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;

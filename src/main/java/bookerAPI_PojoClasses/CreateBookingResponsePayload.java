@@ -1,4 +1,4 @@
-package bookerAPI_utilities;
+package bookerAPI_PojoClasses;
 
 import common_utilities.BasePage;
 

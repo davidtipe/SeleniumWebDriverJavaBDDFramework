@@ -1,6 +1,6 @@
-package bookerAPI_utilities;
+package common_utilities;
 
-public enum BookerAPI_Resource {
+public enum RestAPI_Resources {
 
     createBookingAPI ("/booking"),
     updateBookingAPI("/booking/:id"),
@@ -8,7 +8,7 @@ public enum BookerAPI_Resource {
 
     private String resource;
 
-    BookerAPI_Resource(String resource)
+    RestAPI_Resources(String resource)
     {
         this.resource=resource;
     }
