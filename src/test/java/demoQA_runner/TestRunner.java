@@ -1,4 +1,4 @@
-package cucumberOptions;
+package demoQA_runner;
 
 
 
@@ -12,8 +12,8 @@ import org.junit.runner.RunWith;
         //plugin = {"html:report/cucumber-pretty","json:target/cucumber.json"},
        // tags={},
       //  monochrome = true,
-        features = "src/test/java/features",
-        glue = "stepDefinitions"
+        features = "src/test/java/demoQA_features",
+        glue = "demoQA_StepDefinitions"
 )
 public class TestRunner {
 

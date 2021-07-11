@@ -5,11 +5,13 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import java.io.FileInputStream;
+import java.io.FileOutputStream;
 import java.io.IOException;
 import java.text.DateFormatSymbols;
 import java.time.LocalDate;
 import java.time.ZoneId;
 import java.util.List;
+import java.util.Objects;
 import java.util.Properties;
 import static common_utilities.BrowserEnums.CHROME;
 import static common_utilities.BrowserDirector.get;
@@ -37,11 +39,26 @@ public abstract class BasePage {
         return prop.getProperty(property);
     }
 
-    protected static void setProperty(String key, String value) throws IOException {
-        Properties prop = new Properties();
-        FileInputStream fis = new FileInputStream("src/main/java/resources/data.properties");
-        prop.load(fis);
-        prop.setProperty(key, value);
+    protected static void setProperty(String key, String value){
+        FileOutputStream fos=null;
+        FileInputStream fis=null;
+        try {
+            Properties prop = new Properties();
+            fis = new FileInputStream("src/main/java/resources/data.properties");
+            prop.load(fis);
+            prop.setProperty(key, value);
+            fos = new FileOutputStream("src/main/java/resources/data.properties");
+            prop.store(fos, "Dynamic Values");
+        } catch (Exception ex) {
+            System.out.println("Failed to Load "+ fis);
+        } finally {
+
+            try {
+                Objects.requireNonNull(fos).close();
+            } catch (IOException ex) {
+                System.out.println("Failed to Close "+ fis);
+            }
+        }
     }
 
     protected void goToUrl(String url) throws IOException {
@@ -145,6 +162,13 @@ public abstract class BasePage {
         ZoneId z = ZoneId.of( "Etc/Greenwich" );
         LocalDate today = LocalDate.now( z );
         return today;
+    }
+
+    protected String addOneMonthToCurrentDate()
+    {
+        LocalDate today = getCurrentDate();
+        LocalDate oneMonthLater = today.plusMonths( 1 );
+        return oneMonthLater.toString();
     }
 
     protected String monthToText(int month) {
